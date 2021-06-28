@@ -15,12 +15,14 @@ const Characters = (props) => {
     // side effect in a component, you want to think about which state and/or props it should
     // sync up with, if any.
 
-
-
+    const Header = styled.h1`
+    color: red;
+    font-size: 5rem;
+    `
 
     return (
         <div>
-            <Header> <h1>STAR WARS</h1></Header>
+            <Header>STAR WARS</Header>
             {characters.map(person => {
                 return <Character key={person.url} birthYear={person.birth_year} name={person.name} films={person.films} homeworld={person.homeworld} />
             })}
@@ -28,9 +30,6 @@ const Characters = (props) => {
     );
 }
 
-const Header = styled.h1`
-color: #FFE81F;
-font-size: 2rem;
-`
+
 
 export default Characters;

@@ -13,6 +13,7 @@ function yearSetter(value, index) {
 const Character = (props) => {
     const { birthYear, name, films, homeworld } = props;
     const [planet, setPlanet] = useState([])
+    console.log(props)
 
 
     // Try to think through what state you'll need for this app before starting. Then build out
@@ -31,11 +32,11 @@ const Character = (props) => {
     return (
         <div>
             <Container>
-                <Header><h3><a target="_blank" href={`https://starwars.fandom.com/wiki/${name.split('_')}`} >{name}</a></h3></Header>
-                <p>HomeWorld: <a target="_blank" href={`https://starwars.fandom.com/wiki/${planet}`} >{planet}</a></p>
-                <p>BirthYear: <a target="_blank" href={`https://starwars.fandom.com/wiki/${yearSetter(birthYear, 2)}`} >{birthYear}</a></p>
+                <Header><Anchor target="_blank" href={`https://starwars.fandom.com/wiki/${name.split('_')}`} >{name}</Anchor></Header>
+                <p>Home World: <Anchor target="_blank" href={`https://starwars.fandom.com/wiki/${planet}`} >{planet}</Anchor></p>
+                <p>Birth Year: <Anchor target="_blank" href={`https://starwars.fandom.com/wiki/${yearSetter(birthYear, 2)}`} >{birthYear}</Anchor></p>
                 <ul>
-                    <Header><li>Films</li></Header>
+                    <Header>Films:</Header>
                     {films.map((value, index) => {
                         return <LiContainer><li key={index}>{value}</li></LiContainer>
                     })}
@@ -50,7 +51,7 @@ const Character = (props) => {
 const Container = styled.div`
   font-family: 'Press Start 2P', cursive;
   color: white;
-  border: 2px solid #FFE81F;
+  border: 4px solid red;
   border-radius:10px;
   display: flex;
   justify-content: center;
@@ -60,10 +61,14 @@ const Container = styled.div`
   width:50%;
 `
 const Header = styled.h3`
-color: white;
+color: red;
 `
 const LiContainer = styled.li`
 margin: 1rem 0;`
+
+const Anchor = styled.a`
+    color: red;
+`
 
 
 export default Character;
